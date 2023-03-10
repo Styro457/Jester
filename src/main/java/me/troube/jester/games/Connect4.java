@@ -125,10 +125,10 @@ public class Connect4 extends ListenerAdapter {
             String message;
             if(winner == null) {
                 if(turn.equals(PlayerSymbol.RED))
-                    message = this.player1.getAsMention() + "\'s turn.";
+                    message =  this.player1.getAsMention() + "\'s turn. " + this.turn.emoji.getFormatted();
                 else
                 if(player2 != null)
-                    message = this.player2.getAsMention() + "\'s turn.";
+                    message = this.player2.getAsMention() + "\'s turn. " + this.turn.emoji.getFormatted();
                 else
                     message = "Waiting for someone to join...";
             }

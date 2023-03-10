@@ -1,5 +1,6 @@
 package me.troube.jester.games;
 
+import me.troube.jester.games.objects.TwoPlayerGame;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
@@ -63,12 +64,7 @@ public class TicTacToe extends ListenerAdapter {
         }
     }
 
-    private static class TicTacToeGame {
-
-        public Long id;
-
-        public Member player1;
-        public Member player2;
+    private static class TicTacToeGame extends TwoPlayerGame {
 
         public int scorePlayer1;
         public int scorePlayer2;

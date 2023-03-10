@@ -1,5 +1,6 @@
 package me.troube.jester;
 
+import me.troube.jester.games.Connect4;
 import me.troube.jester.games.TicTacToe;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -30,6 +31,7 @@ public class Jester {
 
 
         builder.addEventListeners(new TicTacToe());
+        builder.addEventListeners(new Connect4());
 
         try {
             jda = builder.build();
@@ -37,6 +39,7 @@ public class Jester {
         } catch(Exception ignore) {};
         for(Guild guild : jda.getGuilds()) {
             guild.upsertCommand("tto", "Play tic tac toe").queue();
+            guild.upsertCommand("connect4", "Play connect 4").queue();
         }
     }
 

@@ -56,8 +56,13 @@ public class TicTacToe extends ListenerAdapter {
                 return;
             }
 
-            if(game.turn.equals(PlayerSymbol.O) && game.player2 == null) {
-                game.player2 = event.getMember();
+            if(game.turn.equals(PlayerSymbol.O)) {
+                if(game.player2 == null)
+                    game.player2 = event.getMember();
+                else if(!event.getMember().equals(game.player2)){
+                    event.deferEdit().queue();
+                    return;
+                }
             }
 
             game.click(row, column, event);

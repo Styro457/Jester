@@ -34,3 +34,4 @@ replay_pid*
 /dataSources.local.xml
 
 /build
+*.bin

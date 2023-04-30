@@ -36,7 +36,9 @@ public class Jester {
         try {
             jda = builder.build();
             jda.awaitReady();
-        } catch(Exception ignore) {};
+        } catch(Exception ignore) {
+            ignore.printStackTrace();
+        };
         for(Guild guild : jda.getGuilds()) {
             guild.upsertCommand("tto", "Play tic tac toe").queue();
             guild.upsertCommand("connect4", "Play connect 4").queue();

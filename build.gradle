@@ -24,6 +24,13 @@ jar {
     from {
         configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
     }
+    doFirst {
+        manifest {
+            attributes(
+                    'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' '),
+                    'Main-Class': 'me.troube.jester.Jester')
+        }
+    }
 }
 
 test {

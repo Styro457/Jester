@@ -9,8 +9,21 @@ repositories {
     mavenCentral() // for transitive dependencies
 }
 
+configurations {
+    // configuration that holds jars to include in the jar
+    extraLibs
+}
+
 dependencies {
     implementation("net.dv8tion:JDA:5.0.0-beta.5")
+    extraLibs("net.dv8tion:JDA:5.0.0-beta.5")
+}
+
+jar {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 test {

@@ -1,12 +1,10 @@
 package me.troube.jester.games;
 
 import me.troube.jester.games.objects.TwoPlayerGame;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.*;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
@@ -18,11 +16,6 @@ import java.util.Map;
 public class TicTacToe extends ListenerAdapter {
 
     private final Map<Long, TicTacToeGame> games = new HashMap<>();
-
-    @Override
-    public void onReady(ReadyEvent event) {
-        JDA jda = event.getJDA();
-    }
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -70,9 +63,6 @@ public class TicTacToe extends ListenerAdapter {
     }
 
     private static class TicTacToeGame extends TwoPlayerGame {
-
-        public int scorePlayer1;
-        public int scorePlayer2;
 
         private int movesLeft = 9;
 

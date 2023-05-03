@@ -18,11 +18,6 @@ public class Connect4 extends ListenerAdapter {
 
     private final Map<Long, Connect4Game> games = new HashMap<>();
 
-/*    @Override
-    public void onReady(ReadyEvent event) {
-        JDA jda = event.getJDA();
-    }*/
-
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if(event.getName().equals("connect4")) {
@@ -71,9 +66,6 @@ public class Connect4 extends ListenerAdapter {
     private static class Connect4Game extends TwoPlayerGame {
 
         private final static int[] diagonals = new int[]{1, -1};
-
-        public int scorePlayer1;
-        public int scorePlayer2;
 
         private int movesLeft = 25;
 
